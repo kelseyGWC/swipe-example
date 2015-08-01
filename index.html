@@ -15,7 +15,7 @@
 </head>
 <body>
  
-<h3>Swipe the pic to see the next movie:</h3>
+<h3>Swipe the images!</h3>
 <img id="pic" src="http://jeffstern.co/playground/pixarSort/images/brave.jpg">
  
 <script>
@@ -26,6 +26,13 @@ $(document).ready(function() {
   $( "#pic" ).on("swiperight", function() {
     console.log("clicked");
     currentPic++;
+    console.log("pic: " + currentPic);
+    currentPic %= myImages.length;
+    $(this).attr("src", myImages[currentPic]);
+  });
+  $( "#pic" ).on("swipeleft", function() {
+    console.log("clicked");
+    currentPic--;
     console.log("pic: " + currentPic);
     currentPic %= myImages.length;
     $(this).attr("src", myImages[currentPic]);
