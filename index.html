@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>swipe demo</title>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    #pic {
+      width: 200px;
+      padding: 1em;
+      background-color: #009999;
+    }
+  </style>
+</head>
+<body>
+ 
+<h3>Swipe the pic to see the next movie:</h3>
+<img id="pic" src="images/brave.jpg">
+ 
+<script>
+var myImages = ["images/brave.jpg", "images/bugslife.jpg", "images/cars.jpg", "images/cars2.jpg", "images/findingnemo.jpg", "images/incredibles.jpg", "images/monstersinc.jpg", "images/monstersuniversity.jpg", "images/ratatouille.jpg", "images/toystory.jpg", "images/toystory2.jpg", "images/toystory3.jpg", "images/up.jpg", "images/walle.jpg"];
+var currentPic = 0;
+
+$(document).ready(function() {
+  $( "#pic" ).on("swiperight", function() {
+    console.log("clicked");
+    currentPic++;
+    console.log("pic: " + currentPic);
+    currentPic %= myImages.length;
+    $(this).attr("src", myImages[currentPic]);
+  });
+});
+ 
+</script>
+ 
+</body>
+</html>
