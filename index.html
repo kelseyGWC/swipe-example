@@ -33,6 +33,7 @@ $(document).ready(function() {
   $( "#pic" ).on("swipeleft", function() {
     console.log("clicked");
     currentPic--;
+    currentPic += myImages.length;
     console.log("pic: " + currentPic);
     currentPic %= myImages.length;
     $(this).attr("src", myImages[currentPic]);
