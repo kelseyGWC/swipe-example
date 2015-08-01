@@ -23,11 +23,11 @@ var currentPic = 0;
 
 $(document).ready(function() {
   $( "#pic" ).on("swiperight", function() {
-    (currentPic++) %= myImages.length;
+    (currentPic += 1) %= myImages.length;
     $(this).attr("src", myImages[currentPic]);
   });
   $( "#pic" ).on("swipeleft", function() {
-    ((currentPic--) += myImages.length) %= myImages.length;
+    ((currentPic -= 1) += myImages.length) %= myImages.length;
     $(this).attr("src", myImages[currentPic]);
   });
 });
