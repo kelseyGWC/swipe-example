@@ -9,13 +9,12 @@
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <style>
     #pic {
-      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
- 
-<h3>Swipe the images!</h3>
+
 <img id="pic" src="http://jeffstern.co/playground/pixarSort/images/brave.jpg">
  
 <script>
@@ -24,18 +23,11 @@ var currentPic = 0;
 
 $(document).ready(function() {
   $( "#pic" ).on("swiperight", function() {
-    console.log("clicked");
-    currentPic++;
-    console.log("pic: " + currentPic);
-    currentPic %= myImages.length;
+    (currentPic++) %= myImages.length;
     $(this).attr("src", myImages[currentPic]);
   });
   $( "#pic" ).on("swipeleft", function() {
-    console.log("clicked");
-    currentPic--;
-    currentPic += myImages.length;
-    console.log("pic: " + currentPic);
-    currentPic %= myImages.length;
+    ((currentPic--) += myImages.length) %= myImages.length;
     $(this).attr("src", myImages[currentPic]);
   });
 });
